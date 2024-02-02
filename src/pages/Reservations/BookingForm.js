@@ -14,7 +14,9 @@ const SignupSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
 });
 
-export default function BookingForm() {
+
+
+export default function BookingForm({dateAvailable, timeAvailable}) {
     return (
         <Formik
             initialValues={{
@@ -39,12 +41,14 @@ export default function BookingForm() {
                                 <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">
                                     Date
                                 </label>
+
                                 <div className="mt-2">
-                                    <Field type="date" name="date" id="date"
-                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                                    {errors.date && touched.date ? (
-                                        <div>{errors.date}</div>
-                                    ) : null}
+                                    <select name='date' id='date' className="px-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        {dateAvailable.map((date, i) => (
+                                            <option value={date} key={i}>{date}</option>
+                                        ))}
+
+                                    </select>
                                 </div>
                             </div>
                             <div className="sm:col-span-3">
@@ -52,11 +56,12 @@ export default function BookingForm() {
                                     Time
                                 </label>
                                 <div className="mt-2">
-                                    <Field type="time" name="time" id="time"
-                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
-                                    {errors.time && touched.time ? (
-                                        <div>{errors.time}</div>
-                                    ) : null}
+                                    <select name='time' id='time' className="px-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                        {timeAvailable.map((time, i) => (
+                                            <option value={time} key={i}>{time}</option>
+                                        ))}
+
+                                    </select>
                                 </div>
                             </div>
                             <div className="sm:col-span-3">

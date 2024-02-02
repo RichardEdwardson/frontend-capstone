@@ -36,6 +36,27 @@ function Hero() {
   )
 }
 
+const sampleMenuItems = [
+  {
+    title: "Greek Salad",
+    price: "12.99",
+    description: 'The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.',
+    image: '/img/menu_items/Greek salad.jpg'
+  },
+  {
+    title: "Bruschetta",
+    price: "5.99",
+    description: 'Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.',
+    image: '/img/menu_items/Bruschetta.jpg'
+  },
+  {
+    title: "Lemon Dessert",
+    price: "5.00",
+    description: 'The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.',
+    image: '/img/menu_items/Lemon dessert.jpg'
+  }
+]
+
 function Specials() {
   return (
     <section className="my-20  lg:mx-[20%] mx-8">
@@ -45,27 +66,37 @@ function Specials() {
         <button className="rounded-xl bg-[#ffd000] py-3 px-4 w-fit font-sans"
         >Online Menu</button>
       </div>
-      <article className="flex gap-4 flex-col lg:flex-row">
-        <MenuItem
-          title="Greek Salad"
-          price="12.99"
-          description='The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.'
-          imgSrc='/img/menu_items/Greek salad.jpg'
-        />
-        <MenuItem
-          title="Bruschetta"
-          price="5.99"
-          description='Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.'
-          imgSrc='/img/menu_items/Bruschetta.jpg'
-        />
-        <MenuItem
-          title="Lemon Dessert"
-          price="5.00"
-          description="This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined."
-          imgSrc='/img/menu_items/Lemon dessert.jpg'
-        />
+      <div className="flex gap-4 lg:gap-[5%] flex-col lg:flex-row">
+        {sampleMenuItems.map(({ title, price, description, image }, i) => (
+          <article className="w-full flex flex-row lg:flex-col lg:h-[500px] rounded-lg overflow-hidden" key={i}>
+            <img className="object-cover lg:w-auto h-40 flex-none w-[20%]"
+              src={image}
+              alt={title}/>
+            <div className="bg-[#edefee] w-full h-40 lg:h-full p-3 flex flex-col justify-between">
+              <div className=" my-1 justify-between flex flex-none">
+                <h2 className="font-serif font-medium text-md"
+                >{title}</h2>
+                <p className="font-serif text-md text-[#ff9b43]"
+                >{`$${price}`}</p>
+              </div>
+              <p className="font-sans font-light text-sm flex-1"
+              >
+                {description}
+              </p>
+              <div className="flex justify-between"
+              >
+                <p className="font-medium"
+                >Order a delivery</p>
+                <img className="h-5"
+                src='/img/bike-icon.svg'/>
 
-      </article>
+              </div>
+
+            </div>
+          </article>
+        ))}
+
+      </div>
 
     </section>
 
