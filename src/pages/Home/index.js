@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 export default function Home() {
@@ -23,8 +24,12 @@ function Hero() {
             Mediterranean restaurant, focused on traditional
             recipes served with a modern twist.
           </p>
-          <button className="rounded-xl bg-[#ffd000] py-3 px-4 w-fit font-sans"
-          >Reserve a table</button>
+          
+            <Link 
+            className="rounded-xl bg-[#ffd000] py-3 px-4 w-fit font-sans"
+            to='/reservations'>Reserve a table</Link>
+            
+
 
         </div>
 
