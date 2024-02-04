@@ -14,7 +14,7 @@ function Hero() {
   return (
     <section className="bg-[#4d5d57] h-[300px]">
       <article className="lg:mx-[20%] py-8 flex justify-between h-full mx-8">
-        <div className="h-full flex flex-col w-[40%]">
+        <div className="h-full flex flex-col md:w-[40%] w-full lg:w-[40%]">
           <h1 className="font-serif text-4xl text-[#e9c10c]"
           >Little Lemon</h1>
           <h2 className="font-serif text-3xl text-white mb-3"
@@ -33,7 +33,7 @@ function Hero() {
 
         </div>
 
-        <img className="w-[40%] rounded-xl h-[300px] object-cover"
+        <img className="w-[40%] rounded-xl h-[300px] object-cover hidden md:block lg:block"
           src="/img/restaurant food B.jpg" />
       </article>
 
@@ -68,7 +68,7 @@ function Specials() {
       <div className="justify-between flex my-10">
         <h2 className="font-serif text-4xl"
         >This weeks specials!</h2>
-        <button className="rounded-xl bg-[#ffd000] py-3 px-4 w-fit font-sans"
+        <button className="rounded-xl bg-[#ffd000] py-3 px-4 w-[50%] md:w-fit lg:w-fit font-sans"
         >Online Menu</button>
       </div>
       <div className="flex gap-4 lg:gap-[5%] flex-col lg:flex-row">
